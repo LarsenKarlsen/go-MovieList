@@ -115,3 +115,11 @@ func Validate(c *gin.Context) {
 		"msg": user,
 	})
 }
+
+func Me(c *gin.Context) {
+	user, _ := c.Get("user")
+
+	c.JSON(http.StatusOK, gin.H{
+		"msg": user,
+	})
+}

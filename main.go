@@ -16,8 +16,24 @@ func init() {
 
 func main() {
 	r := gin.Default()
-	r.POST("/signup", controllers.Signup)
-	r.POST("/login", controllers.Login)
-	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
+
+	// serve static files
+	r.Static("/static", "./static/assets")
+	r.LoadHTMLGlob("views/*")
+
+	frontendRoutes := []string{
+		"/", "/login", "/logout", "/register",
+	}
+
+	for _, route := range frontendRoutes {
+		r.GET(route, controllers.Home)
+	}
+
+	r.POST("api/signup", controllers.Signup)
+	r.POST("api/login", controllers.Login)
+	r.GET("api/validate", middleware.RequireAuth, controllers.Validate)
+
+	r.GET("api/me", middleware.RequireAuth, controllers.Me)
+
 	r.Run()
 }

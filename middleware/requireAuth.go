@@ -13,12 +13,12 @@ import (
 )
 
 func RequireAuth(c *gin.Context) {
-	fmt.Println("In Middleware")
 	// Get cookie off req
 	tokenString, err := c.Cookie("Authorization")
 
 	if err != nil {
 		c.AbortWithStatus(http.StatusUnauthorized)
+		c.JSON(http.StatusForbidden, gin.H{"msg": "not authenticate"})
 		return
 	}
 	// Decode/validate it
@@ -44,6 +44,7 @@ func RequireAuth(c *gin.Context) {
 
 		if user.ID == 0 {
 			c.AbortWithStatus(http.StatusUnauthorized)
+			c.JSON(http.StatusForbidden, gin.H{"msg": "not authenticate"})
 		}
 		// Attach to req
 		c.Set("user", user)
