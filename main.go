@@ -22,7 +22,7 @@ func main() {
 	r.LoadHTMLGlob("views/*")
 
 	frontendRoutes := []string{
-		"/", "/login", "/logout", "/register",
+		"/", "/login", "/logout", "/register", "signup",
 	}
 
 	for _, route := range frontendRoutes {
