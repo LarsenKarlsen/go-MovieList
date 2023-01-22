@@ -22,8 +22,7 @@ func main() {
 	r.LoadHTMLGlob("views/*")
 
 	frontendRoutes := []string{
-		"/", "/login", "/logout", "/register", "signup",
-	}
+		"/", "/login", "/logout", "/register", "signup", "main"}
 
 	for _, route := range frontendRoutes {
 		r.GET(route, controllers.Home)

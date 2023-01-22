@@ -1,7 +1,12 @@
 import React from "react";
+import AccLogForm from "../components/AccLogForm";
 
 const Login = () => {
-  return <h1>Login</h1>;
+  return(<div className="text-center">
+  <div className="container">
+      <AccLogForm/>
+  </div>
+</div>)
 };
 
 export default Login;

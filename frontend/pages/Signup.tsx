@@ -1,12 +1,12 @@
 import React from "react";
-import AccLogForm from "../components/AccLogForm";
+import AccSignForm from "../components/AccSignForm";
 
 
 const Signup = () => {
   return (
     <div className="text-center">
         <div className="container">
-            <AccLogForm/>
+            <AccSignForm/>
         </div>
     </div>
 
