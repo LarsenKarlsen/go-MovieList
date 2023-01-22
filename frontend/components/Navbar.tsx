@@ -1,4 +1,6 @@
 import React from "react";
+import LoginBtn from "./LoginBtn";
+import LogoutBtn from "./LogoutBtn";
 
 const Navbar = (props) => {
   return (
@@ -6,8 +8,8 @@ const Navbar = (props) => {
       <div className="container">
         <a className="navbar-brand" href="/main">MovieList</a>
         {props.auth
-        ? <button className="btn btn-danger">Logout</button>
-        : <button className="btn btn-success">Login</button>
+        ? <LogoutBtn />
+        : <LoginBtn />
         }
       </div>
     </nav>
