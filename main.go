@@ -30,6 +30,7 @@ func main() {
 
 	r.POST("api/signup", controllers.Signup)
 	r.POST("api/login", controllers.Login)
+	r.GET("api/logout", controllers.Logout)
 	r.GET("api/validate", middleware.RequireAuth, controllers.Validate)
 
 	r.GET("api/me", middleware.RequireAuth, controllers.Me)

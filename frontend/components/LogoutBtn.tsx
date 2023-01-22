@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const LogoutBtn = () => {
   const handleClick = () => {
-    console.log("logout")
+    fetch('/api/logout')
+    .then(response=>console.log(response.json()));
   }
 
   return (
