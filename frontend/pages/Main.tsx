@@ -22,7 +22,7 @@ const Main = () => {
 
   return (
     <div>
-    <Navbar auth={auth}/>
+    <Navbar auth={auth} userEmail={user["Email"]}/>
     <main role="main">
       <div className="container">
         <h1>Navbar example</h1>
