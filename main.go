@@ -3,7 +3,7 @@ package main
 import (
 	"movieList/controllers"
 	"movieList/initializers"
-	"movieList/middleware"
+	"movieList/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -28,12 +28,10 @@ func main() {
 		r.GET(route, controllers.Home)
 	}
 
-	r.POST("api/signup", controllers.Signup)
-	r.POST("api/login", controllers.Login)
-	r.GET("api/logout", controllers.Logout)
-	r.GET("api/validate", middleware.RequireAuth, controllers.Validate)
-
-	r.GET("api/me", middleware.RequireAuth, controllers.Me)
+	api := r.Group("/api")
+	routes.AddUserRoutes(api)
+	routes.AddHealthRoutes(api)
+	routes.AddMovieRoutes(api)
 
 	r.Run()
 }

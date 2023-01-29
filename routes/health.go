@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func addHealthRoutes(rg *gin.RouterGroup) {
+func AddHealthRoutes(rg *gin.RouterGroup) {
 	health := rg.Group("/health")
 
 	health.GET("/", func(ctx *gin.Context) {
