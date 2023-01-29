@@ -9,7 +9,7 @@ const Main = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch("api/me")
+    fetch("api/user/me")
     .then(response=>{
       if (response.status === 200) {
         setAuth(true);

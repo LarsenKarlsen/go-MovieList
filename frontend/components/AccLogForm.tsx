@@ -21,7 +21,7 @@ const AccLogForm = () =>{
           password: password
       }
 
-      await fetch("/api/login", {
+      await fetch("/api/user/login", {
           method: "POST",
           headers: {
               "content-type": "application/json" 

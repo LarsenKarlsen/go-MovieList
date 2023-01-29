@@ -19,7 +19,7 @@ const AccSignForm = () => {
             password: password
         }
 
-        await fetch("/api/signup", {
+        await fetch("/api/user/signup", {
             method: "POST",
             headers: {
                 "content-type": "application/json" 
