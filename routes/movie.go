@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"net/http"
+	"movieList/controllers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,26 +9,14 @@ import (
 func AddMovieRoutes(rg *gin.RouterGroup) {
 	movie := rg.Group("/movie")
 
-	movie.GET("/:id", func(ctx *gin.Context) {
-		// get movie
-		ctx.JSON(http.StatusOK, gin.H{"Status": http.StatusOK})
-	})
+	movie.GET("/:id", controllers.GetMovieById)
 
-	movie.GET("/", func(ctx *gin.Context) {
-		// get all movies in db
-		// TODO: make pagination
-	})
+	movie.GET("/", controllers.GetAllMovie)
 
-	movie.POST("/", func(ctx *gin.Context) {
-		// add new movie
-	})
+	movie.POST("/", controllers.AddNewMovie)
 
-	movie.POST("/:id/edit", func(ctx *gin.Context) {
-		// update movie
-	})
+	movie.PUT("/:id", controllers.UpdateMovie)
 
-	movie.POST("/:id/del", func(ctx *gin.Context) {
-		// delete movie
-	})
+	movie.DELETE("/:id", controllers.DeleteMovie)
 
 }
